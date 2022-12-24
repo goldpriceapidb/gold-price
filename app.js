@@ -1,6 +1,7 @@
 import fetch from "node-fetch"
 import * as cheerio from "cheerio"
 import express from "express"
+import cors from "./middleware.js"
 
 let url =
 	"https://economictimes.indiatimes.com/markets/gold-rate-in-india-today"
@@ -35,7 +36,7 @@ function scrape(data) {
 
 let app = express()
 
-app.get("/", async (req, res) => {
+app.get("/", cors, async (req, res) => {
 	let data = await getContent()
 	let gold = scrape(data)
 	res.status(200).send(gold)
