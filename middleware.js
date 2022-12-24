@@ -1,15 +1,18 @@
 let cors = (req, res, next) => {
-	let allowedOrigins = [
+	
+    let allowedOrigins = [
 		"http://localhost:3003",
 		"http://localhost:3000",
 		"https://meowit.netlify.app",
 		"https://meowit.pages.dev",
 	]
+
 	let origin = req.headers.origin
-
-
     // Allow all origins
-    res.setHeader("Access-Control-Allow-Origin", origin)
+    if(origin !== undefined) {
+        res.setHeader("Access-Control-Allow-Origin", origin)
+    }
+
 
     // Allow only specific origins
 	/* 
