@@ -18,7 +18,7 @@ app.get("/", cors, async (_, res) => {
 	res.sendFile(__dirname + "/index.html")
 })
 
-app.get("/rate", (_, res) => {
+app.get("/rate", cors, (_, res) => {
 	res.status(200).send(goldRate)
 })
 
