@@ -35,8 +35,8 @@ app.get("/update", cors, async (_, res) => {
 async function update() {
 	goldRate = await fetchAndScrape()
 	let options = { timeZone: "Asia/Kolkata", hour12: false }
-	let ISTTime = new Date().toLocaleString("en-US", options)
-	console.log(`Updated Time (IST): ${ISTTime}`)
+	let ISTTime = new Date().toLocaleString("en-UK", options)
+	goldRate.push({lastUpdatedIST: ISTTime})
 }
 
 update()
