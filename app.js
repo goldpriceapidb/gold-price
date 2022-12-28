@@ -22,6 +22,11 @@ app.get("/rate", cors, (_, res) => {
 	res.status(200).send(goldRate)
 })
 
+app.get("/live", cors, async (_,res) => {
+	await update()
+	res.status(200).send(goldRate)
+})
+
 app.get("/update", cors, async (_, res) => {
 	await update()
 	res.status(200).send("UPDATED GOLD RATE")
