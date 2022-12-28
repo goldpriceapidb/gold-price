@@ -8,7 +8,7 @@ const __dirname = path.resolve()
 let app = express()
 let port = process.env.PORT || 3003
 
-let goldRate = {}
+let goldRate = []
 
 app.listen(port, () => {
 	console.log(`Alive on port ${port}`)
