@@ -20,6 +20,17 @@ class Database {
                 console.log(err)
             })
     }
+    
+    async start() {
+        return new Promise((resolve, reject) => {
+            mongoose.connection.on("connected", () => {
+                resolve()
+            })
+            mongoose.connection.on("error", (err) => {
+                reject(err)
+            })
+        })
+    }
 }
 
 export default Database
