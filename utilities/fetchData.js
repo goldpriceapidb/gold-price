@@ -104,7 +104,7 @@ function getCurrencyAndRate(gold) {
     }
 }
 
-function getConversionRate(gold) {
+function sanitizeConversionRate(gold) {
     let conversionRate = gold.conversionRate // $14.234 USD
     let rate = conversionRate.split(" ")[0] // "$14.234"
     rate = rate.slice(1) // "14.234"
