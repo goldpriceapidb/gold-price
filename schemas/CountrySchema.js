@@ -6,13 +6,15 @@ const CountrySchema = new Schema({
     countryCode: { type: String, required: true, trim: true },
     currency: { type: String, required: true, trim: true },
 
-    previousPrice: { type: Number, required: true },
+    previousPrice: { type: Number },
     currentPrice: { type: Number, required: true },
 
-    priceChange: { type: Number, required: true },
-    priceChangePercentage: { type: Number, required: true },
+    priceChange: { type: Number },
+    priceChangePercentage: { type: Number },
 
-    serverLastUpdated: { type: Date, required: true },
+    goldLastUpdated: { type: Date, required: true },
+
+    currencyConversionRate: { type: Number, required: true },
     currencyLastUpdated: { type: Date, required: true },
 }, { timestamps: true })
 
