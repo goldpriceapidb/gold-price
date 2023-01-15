@@ -91,4 +91,17 @@ async function fetchJSON(code) {
     }
 }
 
+function getCurrencyAndRate(gold) {
+    let goldRate = gold.goldRate // "₹4000.00 INR"
+    let currency = goldRate.split(" ")[1] // "INR"
+    let rate = goldRate.split(" ")[0] // "₹4000.00"
+    if (isNaN(rate[0])) { 
+        rate = rate.slice(1) // "4000.00"
+    }
+    return {
+        currency,
+        rate
+    }
+}
+
 }
