@@ -24,3 +24,16 @@ function getConversionToUSD(content) {
     let conversionRate = $(cols[1]).text()
     return conversionRate
 }
+
+function getGoldRate(content) {
+    let $ = cheerio.load(content)
+    let table = $("#price-list-sizes").find("table")
+    let rows = table.find("tbody tr")
+
+    let row = $(rows[1])
+    let cols = row.find("td")
+
+    let rate = $(cols[1]).text()
+    return rate
+}
+
