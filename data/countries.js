@@ -153,11 +153,7 @@ let countries = [
     {
         "countryName": "New Zealand",
         "countryCode": "nz"
-    },
-    {
-        "countryName": "Europe",
-        "countryCode": "eu"
-    },
+    }
     // {
     //     "countryName": "Belgium",
     //     "countryCode": "be"
