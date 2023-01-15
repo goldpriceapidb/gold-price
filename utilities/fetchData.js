@@ -37,7 +37,7 @@ function getGoldRate(content) {
     return rate
 }
 
-function lastUpdated(content) {
+function lastUpdatedRate(content) {
     let $ = cheerio.load(content)
     let div = $(".col.c9.ccenter")
     let table = div.find("table")
@@ -51,5 +51,25 @@ function lastUpdated(content) {
     let time = $(bTags[1]).text().trim()
     let timezone = $(bTags[2]).text().trim()
 
-    return [date, time, timezone]
+    row = $(rows[1])
+    cols = row.find("td")
+    col = $(cols[0])
+    bTags = col.find("b")
+
+    let currDate = $(bTags[0]).text().trim()
+    let currTime = $(bTags[1]).text().trim()
+
+    return {
+        timezone,
+        gold: {
+            date,
+            time,
+        },
+        currency: {
+            date: currDate,
+            time: currTime,
+        },
+    }
+}
+
 }
