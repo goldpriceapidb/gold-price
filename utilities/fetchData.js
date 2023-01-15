@@ -1,5 +1,8 @@
 import fetch from "node-fetch"
 import * as cheerio from "cheerio"
+import { formatInTimeZone } from 'date-fns-tz'
+
+import countries from "../data/countries.js"
 
 const sourceURL = "http://goldpricez.com/"
 
@@ -90,6 +93,23 @@ async function fetchJSON(code) {
         console.log(error)
     }
 }
+
+// async function fetchAll() {
+//     let gold = []
+//     for (let i = 0; i < countries.length; i++) {
+//         let country = countries[i]
+//         let code = country.countryCode
+//         let data = await fetchJSON(code)
+//         gold.push(data)
+//         console.log(`Pushed ${code} to gold`)
+//     }
+//     fs.writeFileSync("data.txt", JSON.stringify(gold))
+// }
+
+// async function main() {
+//     await fetchAll()
+// }
+
 
 function getCurrencyAndRate(gold) {
     let goldRate = gold.goldRate // "₹4000.00 INR"
@@ -205,3 +225,8 @@ function getDate(gold) {
         currency: currencySanitizedDate
     }
 }
+
+function sanitizeTimeZone(gold) {
+    return gold.lastUpdated.timezone.split(" ").join("/")
+}
+

@@ -1,45 +1,30 @@
 import express from "express"
-import cors from "./middleware.js"
-import fetchAndScrape from "./utilities/fetchAndScrape.js"
 
-import path from 'path'
-const __dirname = path.resolve()
+// Initialize Environment Variables
+import dotenv from "dotenv"
+dotenv.config()
 
-let app = express()
-let port = process.env.PORT || 3003
+import Database from "./database.js"
+new Database()
 
-let goldRate = []
+import { cors } from "./middleware.js"
 
-app.listen(port, () => {
-	console.log(`Alive on port ${port}`)
+// Initialize Express
+const app = express()
+const PORT = process.env.PORT || 3003
+
+app.listen(PORT, () => {
+	console.log(`Server running on port ${PORT}`)
 })
 
-app.get("/", cors, async (_, res) => {
-	res.sendFile(__dirname + "/index.html")
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+// API Routes
+import country from "./api/country.js"
+
+app.use("/api/country", cors, country)
+
+app.get("/", cors, (_, res) => {
+	res.status(200).send({ text: "Hello World!"})
 })
-
-app.get("/rate", cors, (_, res) => {
-	res.status(200).send(goldRate)
-})
-
-app.get("/live", cors, async (_,res) => {
-	await update()
-	res.status(200).send(goldRate)
-})
-
-app.get("/update", cors, async (_, res) => {
-	await update()
-	res.status(200).send("UPDATED GOLD RATE")
-})
-
-async function update() {
-	goldRate = await fetchAndScrape()
-	let options = { timeZone: "Asia/Kolkata", hour12: false }
-	let ISTTime = new Date().toLocaleString("en-UK", options)
-	goldRate.push({lastUpdatedIST: ISTTime})
-}
-
-update()
-
-let thirtyMinutes = 1000 * 60 * 30
-setInterval(update, thirtyMinutes)

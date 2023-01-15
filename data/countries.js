@@ -1,4 +1,4 @@
-export default countries = [
+let countries = [
     {
         "countryName": "China",
         "countryCode": "cn"
@@ -520,10 +520,6 @@ export default countries = [
         "countryCode": "gn"
     },
     {
-        "countryName": "Jersey",
-        "countryCode": "je"
-    },
-    {
         "countryName": "Kyrgyz Republic",
         "countryCode": "kg"
     },
@@ -548,14 +544,6 @@ export default countries = [
         "countryCode": "ws"
     },
     {
-        "countryName": "St. Tome and Principe",
-        "countryCode": "st"
-    },
-    {
-        "countryName": "Sierra Leone",
-        "countryCode": "sl"
-    },
-    {
         "countryName": "Solomon Islands",
         "countryCode": "sb"
     },
@@ -564,19 +552,13 @@ export default countries = [
         "countryCode": "tt"
     },
     {
-        "countryName": "Yugoslavia",
-        "countryCode": "yu"
-    },
-    {
         "countryName": "Isle of Man",
         "countryCode": "im"
     },
     {
         "countryName": "Ireland",
         "countryCode": "ie"
-    },
-    {
-        "countryName": "Yugoslavia",
-        "countryCode": "yu"
     }
 ]
+
+export default countries
