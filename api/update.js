@@ -16,12 +16,20 @@ router.get("/", (_, res) => {
 router.get("/code/:code", async (req, res) => {
 	const { code } = req.params
 
-	let country = await Country.findOne({ countryCode: code })
-	let data = await getCountryData(code)
+	let country = await addEntryToDatabase(code)
+	res.status(200).send(country)
+})
+
+async function addEntryToDatabase(countryCode) {
+	let data = await getCountryData(countryCode)
+
+	let country = await Country.findOne({ countryCode })
 
 	if (country == null) {
-        console.log("Country not found, creating new country...")
-		let newCountry = await Country.create({
+		console.log(
+			`Country not found, creating new country...${data.countryName}`
+		)
+		let createdCountry = await Country.create({
 			countryName: data.countryName,
 			countryCode: data.countryCode,
 			currency: data.currency,
@@ -30,23 +38,31 @@ router.get("/code/:code", async (req, res) => {
 			currencyConversionRate: data.conversionRate.rate,
 			currencyLastUpdated: data.conversionRate.lastUpdated,
 		})
-		return res.status(200).send(newCountry)
+
+		return createdCountry
+	} else {
+		console.log(`Country found, updating country...${data.countryName}`)
+		let lastKnownRate = country.currentPrice
+
+		country = await Country.findByIdAndUpdate(
+			country._id,
+			{
+				previousPrice: lastKnownRate,
+				currentPrice: data.goldRate.rate,
+				priceChange: data.goldRate.rate - lastKnownRate,
+				priceChangePercentage:
+					((data.goldRate.rate - lastKnownRate) / lastKnownRate) *
+					100,
+				goldLastUpdated: data.goldRate.lastUpdated,
+				currencyConversionRate: data.conversionRate.rate,
+				currencyLastUpdated: data.conversionRate.lastUpdated,
+			},
+			{ new: true }
+		)
 	}
 
-    console.log("Country found, updating country...")
-
-	let lastKnownRate = country.currentPrice
-
-	country = await Country.findByIdAndUpdate(country._id, {
-		previousPrice: lastKnownRate,
-		currentPrice: data.goldRate.rate,
-		priceChange: data.goldRate.rate - lastKnownRate,
-		priceChangePercentage:
-			((data.goldRate.rate - lastKnownRate) / lastKnownRate) * 100,
-		goldLastUpdated: data.goldRate.lastUpdated,
-		currencyConversionRate: data.conversionRate.rate,
-		currencyLastUpdated: data.conversionRate.lastUpdated,
-	}, { new: true })
+	return country
+}
 
 	return res.status(200).send(country)
 })
