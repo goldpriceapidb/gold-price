@@ -103,13 +103,4 @@ async function getCountryData(code) {
 	return countryGold
 }
 
-async function getAllCountriesData() {
-	let countriesGold = []
-	for (let country of countries) {
-		let countryGold = await getCountryData(country.countryCode)
-		countriesGold.push(countryGold)
-	}
-	return countriesGold
-}
-
-export { getCountryData, getAllCountriesData }
+export { getCountryData }
