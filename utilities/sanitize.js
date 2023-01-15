@@ -157,7 +157,11 @@ function getDate(gold) {
 }
 
 function sanitizeTimeZone(gold) {
-    return gold.lastUpdated.timezone.split(" ").join("/")
+    let string = gold.lastUpdated.timezone.split(" ").join("/")
+    if (string.includes("-")) {
+        string = string.replace("-", "_")
+    }
+    return string
 }
 
 export default sanitize
