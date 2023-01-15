@@ -1,32 +1,25 @@
 let cors = (req, res, next) => {
-	
-    let allowedOrigins = [
-		"http://localhost:3003",
-		"http://localhost:3000",
-		"https://meowit.netlify.app",
-		"https://meowit.pages.dev",
-	]
+	const ACCESS_TYPE = "PUBLIC"
+
+	const ALLOWED_ORIGINS = ["http://localhost:3003", "http://localhost:3000"]
 
 	let origin = req.headers.origin
-    // Allow all origins
-    if(origin !== undefined) {
-        res.setHeader("Access-Control-Allow-Origin", origin)
-    }
-
-
-    // Allow only specific origins
-	/* 
-    if (allowedOrigins.includes(origin)) {
-		res.setHeader("Access-Control-Allow-Origin", origin)
-	} else
-		console.log({
-			origin,
-			message: "Origin not allowed",
-			status: "nope",
-			method: req.method,
-		})
-    */
-
+	if (ACCESS_TYPE === "PUBLIC") {
+		if (origin !== undefined) {
+			res.setHeader("Access-Control-Allow-Origin", origin)
+		}
+	} else {
+		if (ALLOWED_ORIGINS.includes(origin)) {
+			res.setHeader("Access-Control-Allow-Origin", origin)
+		} else {
+			console.log({
+				origin,
+				message: "Origin not allowed",
+				status: "nope",
+				method: req.method,
+			})
+		}
+	}
 
 	res.setHeader(
 		"Access-Control-Allow-Methods",
@@ -39,5 +32,4 @@ let cors = (req, res, next) => {
 	return next()
 }
 
-
-export default cors
+export { cors }
