@@ -15,22 +15,22 @@ let countries = [
         "countryName": "Brazil",
         "countryCode": "br"
     },
-    {
-        "countryName": "Belgium",
-        "countryCode": "be"
-    },
-    {
-        "countryName": "Japan",
-        "countryCode": "jp"
-    },
+    // {
+    //     "countryName": "Belgium",
+    //     "countryCode": "be"
+    // },
+    // {
+    //     "countryName": "Japan",
+    //     "countryCode": "jp"
+    // },
     {
         "countryName": "Russia",
         "countryCode": "ru"
     },
-    {
-        "countryName": "Nigeria",
-        "countryCode": "ng"
-    },
+    // {
+    //     "countryName": "Nigeria",
+    //     "countryCode": "ng"
+    // },
     {
         "countryName": "Mexico",
         "countryCode": "mx"
@@ -39,14 +39,14 @@ let countries = [
         "countryName": "Indonesia",
         "countryCode": "id"
     },
-    {
-        "countryName": "Vietnam",
-        "countryCode": "vn"
-    },
-    {
-        "countryName": "South Korea",
-        "countryCode": "kr"
-    },
+    // {
+    //     "countryName": "Vietnam",
+    //     "countryCode": "vn"
+    // },
+    // {
+    //     "countryName": "South Korea",
+    //     "countryCode": "kr"
+    // },
     {
         "countryName": "Turkey",
         "countryCode": "tr"
@@ -55,14 +55,14 @@ let countries = [
         "countryName": "Philippines",
         "countryCode": "ph"
     },
-    {
-        "countryName": "Iran",
-        "countryCode": "ir"
-    },
-    {
-        "countryName": "Egypt",
-        "countryCode": "eg"
-    },
+    // {
+    //     "countryName": "Iran",
+    //     "countryCode": "ir"
+    // },
+    // {
+    //     "countryName": "Egypt",
+    //     "countryCode": "eg"
+    // },
     {
         "countryName": "Argentina",
         "countryCode": "ar"
@@ -75,18 +75,18 @@ let countries = [
         "countryName": "Colombia",
         "countryCode": "co"
     },
-    {
-        "countryName": "Thailand",
-        "countryCode": "th"
-    },
-    {
-        "countryName": "Poland",
-        "countryCode": "pl"
-    },
-    {
-        "countryName": "Ukraine",
-        "countryCode": "ua"
-    },
+    // {
+    //     "countryName": "Thailand",
+    //     "countryCode": "th"
+    // },
+    // {
+    //     "countryName": "Poland",
+    //     "countryCode": "pl"
+    // },
+    // {
+    //     "countryName": "Ukraine",
+    //     "countryCode": "ua"
+    // },
     {
         "countryName": "Malaysia",
         "countryCode": "my"
