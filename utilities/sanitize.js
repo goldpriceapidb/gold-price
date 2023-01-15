@@ -1,3 +1,20 @@
+import { formatInTimeZone } from 'date-fns-tz/esm'
+
+function getFormattedDate(gold) {
+    let timeZone = sanitizeTimeZone(gold)
+    let date = getDate(gold)
+    let goldDate = date.gold
+    let currencyDate = date.currency
+    let time = get24Time(gold)
+    let goldTime = time.gold
+    let currencyTime = time.currency
+    let goldFormattedDate = formatInTimeZone(`${goldDate}T${goldTime}Z`, timeZone, "yyyy-MM-dd HH:mm:ssXXX")
+    let currencyFormattedDate = formatInTimeZone(`${currencyDate}T${currencyTime}Z`, timeZone, "yyyy-MM-dd HH:mm:ssXXX")
+    return {
+        gold: goldFormattedDate,
+        currency: currencyFormattedDate
+    }
+}
 
 function getCurrencyAndRate(gold) {
     let goldRate = gold.goldRate // "₹4000.00 INR"
