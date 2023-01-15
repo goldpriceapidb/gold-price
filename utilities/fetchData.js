@@ -13,3 +13,14 @@ function codeToURL(code) {
     return `${sourceURL}${code}/gram`
 }
 
+function getConversionToUSD(content) {
+    let $ = cheerio.load(content)
+    let table = $(".display_rates").parent().find(".tb")
+    let rows = table.find("tbody tr")
+
+    let row = $(rows[4])
+    let cols = row.find("td")
+
+    let conversionRate = $(cols[1]).text()
+    return conversionRate
+}
