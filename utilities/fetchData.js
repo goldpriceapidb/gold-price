@@ -191,3 +191,17 @@ function sanitizeDate(string) {
 
     return year + "-" + month + "-" + day // "2023-01-15"
 }
+
+function getDate(gold) {
+    let lastUpdated = gold.lastUpdated
+    let goldDate = lastUpdated.gold.date // 15-Jan-2023
+    let currencyDate = lastUpdated.currency.date // 15-Jan-2023
+
+    let goldSanitizedDate = sanitizeDate(goldDate) // 2023-01-15
+    let currencySanitizedDate = sanitizeDate(currencyDate) // 2023-01-15
+
+    return {
+        gold: goldSanitizedDate,
+        currency: currencySanitizedDate
+    }
+}
