@@ -110,3 +110,42 @@ function sanitizeConversionRate(gold) {
     rate = rate.slice(1) // "14.234"
     return rate
 }
+
+
+function sanitizeTime(string) {
+    // string would be "07:04:00 pm"
+
+    let time = string.split(" ")[0] // "07:04:00"
+    let hours = time.split(":")[0] // "07"
+    let minutes = time.split(":")[1] // "04"
+    let seconds = time.split(":")[2] // "00"
+
+    if (hours.length === 1) {
+        hours = "0" + hours // "07"
+    }
+
+    if (minutes.length === 1) {
+        minutes = "0" + minutes // "04"
+    }
+
+    if (seconds.length === 1) { 
+        seconds = "0" + seconds // "00"
+    }
+
+    // if it's pm, then add 12 hours
+    if (string.split(" ")[1] === "pm") {
+        hours = Number(hours) + 12 // 19
+    }
+
+    // if it's 24:00:00, then it's midnight, so replace 24 with 00
+    if(hours === "24") {
+        hours = "00" // "00"
+    }
+
+    // if it's 12:00:00 am, then it's midnight, so replace 12 with 00
+    if(hours === "12" && string.split(" ")[1] === "am") {
+        hours = "00" // "00"
+    }
+
+    return hours + ":" + minutes + ":" + seconds // "19:04:00"
+}
