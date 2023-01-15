@@ -1,5 +1,30 @@
 import { formatInTimeZone } from 'date-fns-tz/esm'
 
+function sanitize(gold) {
+    let value = {}
+    value.countryName = gold.countryName
+    value.countryCode = gold.countryCode
+    
+    let currencyAndRate = getCurrencyAndRate(gold)
+    value.currency = currencyAndRate.currency
+
+    let formattedDateTime = getFormattedDate(gold)
+    
+    value.conversionRate = {
+        rate: sanitizeConversionRate(gold),
+        currency: "USD",
+        lastUpdated: formattedDateTime.currency
+    }
+
+    value.goldRate = {
+        rate: currencyAndRate.rate,
+        currency: value.currency,
+        lastUpdated: formattedDateTime.gold
+    }
+
+    return value
+}
+
 function getFormattedDate(gold) {
     let timeZone = sanitizeTimeZone(gold)
     let date = getDate(gold)
@@ -135,3 +160,4 @@ function sanitizeTimeZone(gold) {
     return gold.lastUpdated.timezone.split(" ").join("/")
 }
 
+export default sanitize
