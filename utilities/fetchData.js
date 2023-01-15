@@ -149,3 +149,18 @@ function sanitizeTime(string) {
 
     return hours + ":" + minutes + ":" + seconds // "19:04:00"
 }
+
+function get24Time(gold) {
+    let lastUpdated = gold.lastUpdated
+    let goldTime = lastUpdated.gold.time // 07:04:00 am
+    let currencyTime = lastUpdated.currency.time // 07:04:00 am
+
+    let gold24Time = sanitizeTime(goldTime) // 19:04:00
+    let currency24Time = sanitizeTime(currencyTime) // 19:04:00
+
+    return {
+        gold: gold24Time,
+        currency: currency24Time
+    }
+}
+
