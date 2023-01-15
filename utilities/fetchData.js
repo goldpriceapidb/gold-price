@@ -21,7 +21,7 @@ function getConversionToUSD(content) {
     let row = $(rows[4])
     let cols = row.find("td")
 
-    let conversionRate = $(cols[1]).text()
+    let conversionRate = $(cols[1]).text().trim()
     return conversionRate
 }
 
@@ -33,7 +33,7 @@ function getGoldRate(content) {
     let row = $(rows[1])
     let cols = row.find("td")
 
-    let rate = $(cols[1]).text()
+    let rate = $(cols[1]).text().trim()
     return rate
 }
 
