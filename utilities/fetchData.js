@@ -164,3 +164,30 @@ function get24Time(gold) {
     }
 }
 
+function sanitizeDate(string) {
+    let day = string.split("-")[0] // "15"
+    let month = string.split("-")[1] // "Jan"
+    let year = string.split("-")[2] // "2023"
+
+    if (day.length === 1) {
+        day = "0" + day // "15"
+    }
+
+    let monthMap = {
+        "Jan": "01",
+        "Feb": "02",
+        "Mar": "03",
+        "Apr": "04",
+        "May": "05",
+        "Jun": "06",
+        "Jul": "07",
+        "Aug": "08",
+        "Sep": "09",
+        "Oct": "10",
+        "Nov": "11",
+        "Dec": "12"
+    }
+    month = monthMap[month] // "01"
+
+    return year + "-" + month + "-" + day // "2023-01-15"
+}
