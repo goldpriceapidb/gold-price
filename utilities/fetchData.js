@@ -97,28 +97,19 @@ async function fetchJSON(code) {
 	}
 }
 
-// async function fetchAll() {
-//     let gold = []
-//     for (let i = 0; i < countries.length; i++) {
-//         let country = countries[i]
-//         let code = country.countryCode
-//         let data = await fetchJSON(code)
-//         gold.push(data)
-//         console.log(`Pushed ${code} to gold`)
-//     }
-//     fs.writeFileSync("data.txt", JSON.stringify(gold))
-// }
-
-// async function main() {
-//     await fetchAll()
-// }
-
-async function test() {
-    let gold = await fetchJSON("cn")
-    console.log(gold)
-
-    gold = sanitize(gold)
-    console.log(gold)
+async function getCountryData(code) {
+	let countryGold = await fetchJSON(code)
+	countryGold = sanitize(countryGold)
+	return countryGold
 }
 
-// test()
+async function getAllCountriesData() {
+	let countriesGold = []
+	for (let country of countries) {
+		let countryGold = await getCountryData(country.countryCode)
+		countriesGold.push(countryGold)
+	}
+	return countriesGold
+}
+
+export { getCountryData, getAllCountriesData }
