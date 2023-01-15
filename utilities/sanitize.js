@@ -43,11 +43,17 @@ function getFormattedDate(gold) {
 
 function getCurrencyAndRate(gold) {
     let goldRate = gold.goldRate // "₹4000.00 INR"
-    let currency = goldRate.split(" ")[1] // "INR"
-    let rate = goldRate.split(" ")[0] // "₹4000.00"
+    let goldRateArray = goldRate.split(" ")
+    if(goldRateArray.length !== 2) {
+        goldRateArray.shift()
+    }
+
+    let currency = goldRateArray[1] // "INR"
+    let rate = goldRateArray[0] // "₹4000.00"
     if (isNaN(rate[0])) { 
         rate = rate.slice(1) // "4000.00"
     }
+
     return {
         currency,
         rate
