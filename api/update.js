@@ -1,6 +1,7 @@
 import express from "express"
 import Country from "../schemas/CountrySchema.js"
 import { getCountryData } from "../utilities/fetchData.js"
+import countries from "../data/countries.js"
 
 const app = express()
 const router = express.Router()
@@ -12,6 +13,15 @@ router.get("/", (_, res) => {
 	res.send({ message: "UPDATE API ONLINE" })
 })
 
+router.get("/all", async (_, res) => {
+	try {
+		res.sendStatus(202)
+		await getAllStuffDone()
+	} catch (error) {
+		console.log(error)
+		res.status(500).send({ error })
+	}
+})
 
 router.get("/code/:code", async (req, res) => {
 	const { code } = req.params
@@ -64,7 +74,19 @@ async function addEntryToDatabase(countryCode) {
 	return country
 }
 
-	return res.status(200).send(country)
-})
+async function getAllStuffDone() {
+	new Promise(async (resolve, _) => {
+		let count = 0
+		let timeout = setTimeout(async function run() {
+			await addEntryToDatabase(countries[count].countryCode)
+			count++
+			if (count < countries.length) {
+				timeout = setTimeout(run, 100)
+			} else {
+				resolve()
+			}
+		})
+	})
+}
 
 export default router
