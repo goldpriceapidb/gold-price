@@ -1,15 +1,12 @@
 import express from "express"
-
-// Initialize Environment Variables
 import dotenv from "dotenv"
-dotenv.config()
-
 import Database from "./database.js"
+import { cors } from "./middleware.js"
+import { getAllStuffDone } from "./api/update.js"
+
+dotenv.config()
 new Database()
 
-import { cors } from "./middleware.js"
-
-// Initialize Express
 const app = express()
 const PORT = process.env.PORT || 3003
 
@@ -30,3 +27,10 @@ app.use("/api/update", cors, update)
 app.get("/", cors, (_, res) => {
 	res.status(200).send({ text: "Hello World!"})
 })
+
+setInterval(() => {
+	console.log("Updating all countries...")
+	getAllStuffDone()
+}, 1000 * 60 * 60)
+
+// the above setInterval runs the function every hour
