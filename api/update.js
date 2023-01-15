@@ -90,3 +90,4 @@ async function getAllStuffDone() {
 }
 
 export default router
+export { getAllStuffDone }
