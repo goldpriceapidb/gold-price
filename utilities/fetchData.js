@@ -77,13 +77,15 @@ function lastUpdatedRate(content) {
 
 async function fetchJSON(code) {
     let url = codeToURL(code)
+    let countryName = countries.find(country => country.countryCode === code).countryName
     try {
         const content = await getPage(url)
         let conversionRate = getConversionToUSD(content)
         let goldRate = getGoldRate(content)
         let lastUpdated = lastUpdatedRate(content)
         let gold = {
-            country: code,
+            countryName,
+            countryCode: code,
             conversionRate,
             goldRate,
             lastUpdated
