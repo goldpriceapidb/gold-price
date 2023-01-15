@@ -9,3 +9,7 @@ async function getPage(sourceURL) {
     return data
 }
 
+function codeToURL(code) {
+    return `${sourceURL}${code}/gram`
+}
+
