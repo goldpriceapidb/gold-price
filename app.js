@@ -22,8 +22,10 @@ app.use(express.urlencoded({ extended: true }))
 
 // API Routes
 import country from "./api/country.js"
+import update from "./api/update.js"
 
 app.use("/api/country", cors, country)
+app.use("/api/update", cors, update)
 
 app.get("/", cors, (_, res) => {
 	res.status(200).send({ text: "Hello World!"})
