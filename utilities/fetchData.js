@@ -1,6 +1,6 @@
 import fetch from "node-fetch"
 import * as cheerio from "cheerio"
-import { formatInTimeZone } from 'date-fns-tz'
+import sanitize from "./sanitize.js"
 
 import countries from "../data/countries.js"
 
@@ -120,3 +120,4 @@ async function test() {
     console.log(gold)
 }
 
+// test()
