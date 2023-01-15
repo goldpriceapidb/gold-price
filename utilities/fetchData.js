@@ -72,4 +72,23 @@ function lastUpdatedRate(content) {
     }
 }
 
+async function fetchJSON(code) {
+    let url = codeToURL(code)
+    try {
+        const content = await getPage(url)
+        let conversionRate = getConversionToUSD(content)
+        let goldRate = getGoldRate(content)
+        let lastUpdated = lastUpdatedRate(content)
+        let gold = {
+            country: code,
+            conversionRate,
+            goldRate,
+            lastUpdated
+        }
+        return gold
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 }
