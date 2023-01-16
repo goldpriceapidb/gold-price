@@ -171,3 +171,5 @@ function sanitizeTimeZone(gold) {
 }
 
 export default sanitize
+
+export { sanitizeDate }

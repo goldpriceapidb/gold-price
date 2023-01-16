@@ -104,9 +104,17 @@ async function fetchJSON(code) {
 }
 
 async function getCountryData(code) {
-	let countryGold = await fetchJSON(code)
-	countryGold = sanitize(countryGold)
-	return countryGold
+	let country = countries.find((country) => country.countryCode === code)
+	if (country.type === "goldpricez") {
+		let countryGold = await fetchJSON(code)
+		countryGold = sanitize(countryGold)
+		return countryGold
+	}
+
+	if (country.type === "livepriceofgold") {
+		let countryGold = await fetchCountry(code)
+		return countryGold
+	}
 }
 
-export { getCountryData }
+export { getCountryData, codeToLiveURL, getPage }
