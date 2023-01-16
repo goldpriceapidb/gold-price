@@ -2,8 +2,10 @@ import fetch from "node-fetch"
 import * as cheerio from "cheerio"
 import sanitize from "./sanitize.js"
 import countries from "../data/countries.js"
+import fetchCountry from "./liveprice.js"
 
-const sourceURL = "http://goldpricez.com/"
+const sourceURL = "http://goldpricez.com"
+const liveURL = "https://www.livepriceofgold.com"
 
 async function getPage(sourceURL) {
 	let response = await fetch(sourceURL)
@@ -12,7 +14,11 @@ async function getPage(sourceURL) {
 }
 
 function codeToURL(code) {
-	return `${sourceURL}${code}/gram`
+	return `${sourceURL}/${code}/gram`
+}
+
+function codeToLiveURL(code) {
+	return `${liveURL}/${code}-gold-price.html`
 }
 
 function getConversionToUSD(content) {
