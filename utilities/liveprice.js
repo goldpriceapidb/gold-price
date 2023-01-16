@@ -64,3 +64,23 @@ function sanitizeLastUpdated(text) {
 
 	return dateTime
 }
+
+function formatValues(country) {
+
+    let value = {}
+    value.countryName = country.countryName
+    value.countryCode = country.countryCode
+    value.currency = country.currency
+    value.goldRate = {
+        rate: country.goldRate,
+        currency: country.currency,
+        lastUpdated: country.lastUpdated
+    },
+    value.conversionRate = {
+        rate: country.conversionRate,
+        currency: "USD"
+    }
+
+    return value
+}
+
