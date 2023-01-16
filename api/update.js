@@ -45,8 +45,7 @@ async function addEntryToDatabase(countryCode) {
 			currency: data.currency,
 			currentPrice: data.goldRate.rate,
 			goldLastUpdated: data.goldRate.lastUpdated,
-			currencyConversionRate: data.conversionRate.rate,
-			currencyLastUpdated: data.conversionRate.lastUpdated,
+			currencyConversionRate: data.conversionRate.rate
 		})
 
 		return createdCountry
@@ -64,8 +63,7 @@ async function addEntryToDatabase(countryCode) {
 					((data.goldRate.rate - lastKnownRate) / lastKnownRate) *
 					100,
 				goldLastUpdated: data.goldRate.lastUpdated,
-				currencyConversionRate: data.conversionRate.rate,
-				currencyLastUpdated: data.conversionRate.lastUpdated,
+				currencyConversionRate: data.conversionRate.rate
 			},
 			{ new: true }
 		)

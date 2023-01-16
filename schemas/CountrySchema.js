@@ -14,8 +14,7 @@ const CountrySchema = new Schema({
 
     goldLastUpdated: { type: Date, required: true },
 
-    currencyConversionRate: { type: Number, required: true },
-    currencyLastUpdated: { type: Date, required: true },
+    currencyConversionRate: { type: Number, required: true }
 }, { timestamps: true })
 
 let Country = mongoose.model('Country', CountrySchema)
