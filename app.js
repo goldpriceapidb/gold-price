@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import Database from "./database.js"
 import { cors } from "./middleware.js"
 import { getAllStuffDone } from "./api/update.js"
+import content from "./data/html.js"
 
 dotenv.config()
 const app = express()
@@ -27,7 +28,9 @@ app.use("/api/country", cors, country)
 app.use("/api/update", cors, update)
 
 app.get("/", cors, (_, res) => {
-	res.status(200).send({ text: "Hello World!"})
+	res.status(200).send(content)
+})
+
 })
 
 setInterval(() => {
