@@ -73,19 +73,13 @@ async function addEntryToDatabase(countryCode) {
 }
 
 async function getAllStuffDone() {
-	new Promise(async (resolve, _) => {
-		let count = 0
-		let timeout = setTimeout(async function run() {
-			await addEntryToDatabase(countries[count].countryCode)
-			count++
-			if (count < countries.length) {
-				timeout = setTimeout(run, 100)
-			} else {
-				resolve()
-			}
-		})
-	})
+	let promises = []
+	for (let i = 0; i < countries.length; i++) {
+		promises.push(addEntryToDatabase(countries[i].countryCode))
+	}
+	await Promise.all(promises)
 }
+
 
 export default router
 export { getAllStuffDone }
