@@ -27,3 +27,15 @@ function getConversionToUSD(content) {
 	let conversionRate = $(cols[2]).text().trim()
 	return 1 / conversionRate
 }
+
+function getLastUpdated(content) {
+	let $ = cheerio.load(content)
+	let img = $(".cleft.fleft.data-img.pad3")
+	let parent = img.parent()
+	let font = parent.find("font")
+	let i = font.find("i")
+	let b = i.find("b")
+	let text = b.text().trim()
+	return text
+}
+
