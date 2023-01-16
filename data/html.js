@@ -38,6 +38,7 @@ let content = `<!DOCTYPE html>
             display: flex;
             flex-direction: column;
             align-items: center;
+            max-width: 300px;
         }
         .api span {
             margin-bottom: 0.5rem;
