@@ -124,4 +124,27 @@ async function main() {
 
 }
 
-main()
+function entry() {
+
+	
+	let data = fs.readFileSync("valid.txt", "utf-8")
+	data = data.split("\n")
+	// remove the last empty element
+	data.pop()
+	data = data.map(element => element.split("="))
+	data = data.map(element => {
+		return {
+			countryName: element[0],
+			countryCode: element[1],
+			type: "livepriceofgold"
+		}
+	})
+
+	// save the data to data.js
+	let string = `let countries = [\n`
+	data.forEach(element => {
+		string += `\t{\n\t\tcountryName: "${element.countryName}",\n\t\tcountryCode: "${element.countryCode}",\n\t\ttype: "${element.type}"\n\t},\n`
+	})
+	string += `]\n\nexport default countries`
+	fs.writeFileSync("data.js", string)
+}
