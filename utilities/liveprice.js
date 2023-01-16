@@ -48,3 +48,19 @@ function getLastUpdated(content) {
 	return text
 }
 
+function sanitizeLastUpdated(text) {
+	let dateTime = text.split(" ")
+	let date = dateTime[0]
+	let month = dateTime[1]
+	let year = dateTime[2]
+	let time = dateTime[3]
+
+	month = month.slice(0, 3)
+
+	let formattedDate = `${date}-${month}-${year}`
+	formattedDate = sanitizeDate(formattedDate)
+
+	dateTime = `${formattedDate}T${time}:00.000+00:00`
+
+	return dateTime
+}
