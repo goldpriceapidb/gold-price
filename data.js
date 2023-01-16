@@ -224,6 +224,31 @@ let countries = [
 		countryCode: "united-kingdom",
 		type: "livepriceofgold"
 	},
+	{
+		countryName: "Guyana",
+		countryCode: "gy",
+		type: "goldpricez"
+	},
+	{
+		countryName: "Liberia",
+		countryCode: "lr",
+		type: "goldpricez"
+	},
+	{
+		countryName: "Mongolia",
+		countryCode: "mn",
+		type: "goldpricez"
+	},
+	{
+		countryName: "Kyrgyzstan",
+		countryCode: "kg",
+		type: "goldpricez"
+	},
+	{
+		countryName: "Suriname",
+		countryCode: "sr",
+		type: "goldpricez"
+	},
 ]
 
 export default countries
