@@ -23,7 +23,6 @@ async function fetchCountry(code) {
 			lastUpdated,
 			conversionRate,
 		}
-        console.log(`Fetched ${gold.countryName}. ConversionRate: ${gold.conversionRate}`)
 		return formatValues(gold)
 	} catch (error) {
 		console.log(error)
@@ -53,7 +52,9 @@ function sanitizeTextToCurrency(text) {
 }
 
 function sanitizeGoldRate(text) {
-    return text.split(" ").join("") // remove spaces
+    text = text.split(" ").join("") // remove spaces
+    text = text.split(",").join("") // remove commas
+    return parseFloat(text)
 }
 
 function getConversionToUSD(content) {
@@ -65,6 +66,9 @@ function getConversionToUSD(content) {
 	let row = $(rows[1])
 	let cols = row.find("td")
 	let conversionRate = $(cols[2]).text().trim()
+
+    conversionRate = conversionRate.split(" ").join("") // remove spaces
+    conversionRate = conversionRate.split(",").join("") // remove commas
 	return 1 / conversionRate
 }
 
