@@ -15,8 +15,6 @@ new Database().start().then(() => {
 	})
 })
 
-
-
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
@@ -31,6 +29,12 @@ app.get("/", cors, (_, res) => {
 	res.status(200).send(content)
 })
 
+app.get("/ping", cors, (_, res) => {
+	res.status(200).send("pong")
+})
+
+app.get("*", cors, (_, res) => {
+	res.sendStatus(404)
 })
 
 setInterval(() => {
