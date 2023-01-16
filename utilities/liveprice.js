@@ -16,6 +16,15 @@ function getGoldPriceAndCurrency(content) {
 	}
 }
 
+function sanitizeTextToCurrency(text) {
+	let currency = text.split(" ").pop()
+	return currency
+}
+
+function sanitizeGoldRate(text) {
+    return text.split(" ").join("") // remove spaces
+}
+
 function getConversionToUSD(content) {
 	let $ = cheerio.load(content)
 	let img = $(".cleft.fleft.data-img.pad3")
