@@ -1,572 +1,254 @@
 let countries = [
 	{
-	    "countryName": "China",
-	    "countryCode": "cn"
+		countryName: "Malaysia",
+		countryCode: "malaysia",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "India",
-	    "countryCode": "in"
-	},
-	// {
-	//     "countryName": "Europe",
-	//     "countryCode": "eu"
-	// },
-	{
-	    "countryName": "Brazil",
-	    "countryCode": "br"
-	},
-	// {
-	//     "countryName": "Belgium",
-	//     "countryCode": "be"
-	// },
-	// {
-	//     "countryName": "Japan",
-	//     "countryCode": "jp"
-	// },
-	{
-	    "countryName": "Russia",
-	    "countryCode": "ru"
+		countryName: "Dubai",
+		countryCode: "dubai",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "Nigeria",
-	    "countryCode": "ng",
-        "comment": "Nigeria sometimes refered as Niger"
+		countryName: "Turkey",
+		countryCode: "turkey",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "Mexico",
-	    "countryCode": "mx"
+		countryName: "Philippines",
+		countryCode: "philippines",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "Indonesia",
-	    "countryCode": "id"
-	},
-	// {
-	//     "countryName": "Vietnam",
-	//     "countryCode": "vn"
-	// },
-	{
-	    "countryName": "South Korea",
-	    "countryCode": "kr"
+		countryName: "India",
+		countryCode: "india",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "Turkey",
-	    "countryCode": "tr"
+		countryName: "Argentina",
+		countryCode: "argentina",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "Philippines",
-	    "countryCode": "ph"
-	},
-	// {
-	//     "countryName": "Iran",
-	//     "countryCode": "ir"
-	// },
-	// {
-	//     "countryName": "Egypt",
-	//     "countryCode": "eg"
-	// },
-	{
-	    "countryName": "Argentina",
-	    "countryCode": "ar"
-	},
-	// {
-	//     "countryName": "South Africa",
-	//     "countryCode": "za"
-	// },
-	{
-	    "countryName": "Colombia",
-	    "countryCode": "co"
-	},
-	// {
-	//     "countryName": "Thailand",
-	//     "countryCode": "th"
-	// },
-	// {
-	//     "countryName": "Poland",
-	//     "countryCode": "pl"
-	// },
-	// {
-	//     "countryName": "Ukraine",
-	//     "countryCode": "ua"
-	// },
-	{
-	    "countryName": "Malaysia",
-	    "countryCode": "my"
-	},
-	// {
-	//     "countryName": "Kenya",
-	//     "countryCode": "ke"
-	// },
-	// {
-	//     "countryName": "Morocco",
-	//     "countryCode": "ma"
-	// },
-	{
-	    "countryName": "Venezuela",
-	    "countryCode": "ve"
-	},
-	// {
-	//     "countryName": "Taiwan",
-	//     "countryCode": "tw"
-	// },
-	// {
-	//     "countryName": "Algeria",
-	//     "countryCode": "dz"
-	// },
-	{
-	    "countryName": "Kazakhstan",
-	    "countryCode": "kz"
+		countryName: "Ecuador",
+		countryCode: "ecuador",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "Peru",
-	    "countryCode": "pe"
+		countryName: "Brazil",
+		countryCode: "brazil",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "Uzbekistan",
-	    "countryCode": "uz"
-	},
-	// {
-	//     "countryName": "Myanmar",
-	//     "countryCode": "mm"
-	// },
-	{
-	    "countryName": "Chile",
-	    "countryCode": "cl"
-	},
-	// {
-	//     "countryName": "Ethiopia",
-	//     "countryCode": "et"
-	// },
-	// {
-	//     "countryName": "Romania",
-	//     "countryCode": "ro"
-	// },
-	{
-	    "countryName": "Sudan",
-	    "countryCode": "sd"
+		countryName: "Canada",
+		countryCode: "canada",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "Sweden",
-	    "countryCode": "se"
-	},
-	// {
-	//     "countryName": "Azerbaijan",
-	//     "countryCode": "az"
-	// },
-	// {
-	//     "countryName": "Uganda",
-	//     "countryCode": "ug"
-	// },
-	// {
-	//     "countryName": "Switzerland",
-	//     "countryCode": "ch"
-	// },
-	// {
-	//     "countryName": "Hungary",
-	//     "countryCode": "hu"
-	// },
-	// {
-	//     "countryName": "Yemen",
-	//     "countryCode": "ye"
-	// },
-	{
-	    "countryName": "Ghana",
-	    "countryCode": "gh"
-	},
-	// {
-	//     "countryName": "Iraq",
-	//     "countryCode": "iq"
-	// },
-	// {
-	//     "countryName": "Hong Kong",
-	//     "countryCode": "hk"
-	// },
-	// {
-	//     "countryName": "Belarus",
-	//     "countryCode": "by"
-	// },
-	// {
-	//     "countryName": "Serbia",
-	//     "countryCode": "rs"
-	// },
-	// {
-	//     "countryName": "Syria",
-	//     "countryCode": "sy"
-	// },
-	{
-	    "countryName": "Dominican Republic",
-	    "countryCode": "do"
-	},
-	// {
-	//     "countryName": "Denmark",
-	//     "countryCode": "dk"
-	// },
-	// {
-	//     "countryName": "Tunisia",
-	//     "countryCode": "tn"
-	// },
-	// {
-	//     "countryName": "Norway",
-	//     "countryCode": "no"
-	// },
-	// {
-	//     "countryName": "Nepal",
-	//     "countryCode": "np"
-	// },
-	{
-	    "countryName": "Bolivia",
-	    "countryCode": "bo"
-	},
-	// {
-	//     "countryName": "Guatemala",
-	//     "countryCode": "gt"
-	// },
-	// {
-	//     "countryName": "Lebanon",
-	//     "countryCode": "lb"
-	// },
-	// {
-	//     "countryName": "Jordan",
-	//     "countryCode": "jo"
-	// },
-	{
-	    "countryName": "Bulgaria",
-	    "countryCode": "bg"
+		countryName: "Peru",
+		countryCode: "peru",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "New Zealand",
-	    "countryCode": "nz"
-	},
-	// {
-	//     "countryName": "Zambia",
-	//     "countryCode": "zm"
-	// },
-	// {
-	//     "countryName": "Oman",
-	//     "countryCode": "om"
-	// },
-	{
-	    "countryName": "Senegal",
-	    "countryCode": "sn"
-	},
-	// {
-	//     "countryName": "Angola",
-	//     "countryCode": "ao"
-	// },
-	// {
-	//     "countryName": "Cambodia",
-	//     "countryCode": "kh"
-	// },
-	// {
-	//     "countryName": "Croatia",
-	//     "countryCode": "hr"
-	// },
-	// {
-	//     "countryName": "Paraguay",
-	//     "countryCode": "py"
-	// },
-	{
-	    "countryName": "Congo",
-	    "countryCode": "cd",
-        "comment": "Democratic Republic Congo"
-	},
-	// {
-	//     "countryName": "Costa Rica",
-	//     "countryCode": "cr"
-	// },
-	{
-	    "countryName": "Tanzania",
-	    "countryCode": "tz"
-	},
-	// {
-	//     "countryName": "Afghanistan",
-	//     "countryCode": "af"
-	// },
-	// {
-	//     "countryName": "Mozambique",
-	//     "countryCode": "mz"
-	// },
-	// {
-	//     "countryName": "Bosnia",
-	//     "countryCode": "ba"
-	// },
-	// {
-	//     "countryName": "Uruguay",
-	//     "countryCode": "uy"
-	// },
-	// {
-	//     "countryName": "Rwanda",
-	//     "countryCode": "rw"
-	// },
-	// {
-	//     "countryName": "Lithuania",
-	//     "countryCode": "lt"
-	// },
-	// {
-	//     "countryName": "Moldova",
-	//     "countryCode": "md"
-	// },
-	// {
-	//     "countryName": "Panama",
-	//     "countryCode": "pa"
-	// },
-	// {
-	//     "countryName": "Georgia",
-	//     "countryCode": "ge"
-	// },
-	// {
-	//     "countryName": "Armenia",
-	//     "countryCode": "am"
-	// },
-	// {
-	//     "countryName": "Albania",
-	//     "countryCode": "al"
-	// },
-	// {
-	//     "countryName": "Honduras",
-	//     "countryCode": "hn"
-	// },
-	// {
-	//     "countryName": "Tajikistan",
-	//     "countryCode": "tj"
-	// },
-	// {
-	//     "countryName": "Malawi",
-	//     "countryCode": "mw"
-	// },
-	// {
-	//     "countryName": "Macedonia",
-	//     "countryCode": "mk"
-	// },
-	// {
-	//     "countryName": "Haiti",
-	//     "countryCode": "ht"
-	// },
-	// {
-	//     "countryName": "Bahrain",
-	//     "countryCode": "bh"
-	// },
-	{
-	    "countryName": "Laos",
-	    "countryCode": "la"
-	},
-	// {
-	//     "countryName": "Jamaica",
-	//     "countryCode": "jm"
-	// },
-	// {
-	//     "countryName": "Nicaragua",
-	//     "countryCode": "ni"
-	// },
-	// {
-	//     "countryName": "Libya",
-	//     "countryCode": "ly"
-	// },
-	{
-	    "countryName": "Madagascar",
-	    "countryCode": "mg"
-	},
-	// {
-	//     "countryName": "Turkmenistan",
-	//     "countryCode": "tm"
-	// },
-	// {
-	//     "countryName": "Mauritius",
-	//     "countryCode": "mu"
-	// },
-	{
-	    "countryName": "Mongolia",
-	    "countryCode": "mn"
-	},
-	// {
-	//     "countryName": "Botswana",
-	//     "countryCode": "bw"
-	// },
-	// {
-	//     "countryName": "Mauritania",
-	//     "countryCode": "mr"
-	// },
-	// {
-	//     "countryName": "Namibia",
-	//     "countryCode": "na"
-	// },
-	// {
-	//     "countryName": "Burundi",
-	//     "countryCode": "bi"
-	// },
-	// {
-	//     "countryName": "Macau",
-	//     "countryCode": "mo"
-	// },
-	// {
-	//     "countryName": "Fiji",
-	//     "countryCode": "fj"
-	// },
-	// {
-	//     "countryName": "Swaziland",
-	//     "countryCode": "sz"
-	// },
-	// {
-	//     "countryName": "Lesotho",
-	//     "countryCode": "ls"
-	// },
-	// {
-	//     "countryName": "Iceland",
-	//     "countryCode": "is"
-	// },
-	// {
-	//     "countryName": "Bhutan",
-	//     "countryCode": "bt"
-	// },
-	{
-	    "countryName": "Guyana",
-	    "countryCode": "gy"
+		countryName: "Finland",
+		countryCode: "finland",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "Liberia",
-	    "countryCode": "lr"
+		countryName: "Madagascar",
+		countryCode: "madagascar",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "Suriname",
-	    "countryCode": "sr"
-	},
-	// {
-	//     "countryName": "Barbados",
-	//     "countryCode": "bb"
-	// },
-	// {
-	//     "countryName": "Maldives",
-	//     "countryCode": "mv"
-	// },
-	{
-	    "countryName": "Somalia",
-	    "countryCode": "so",
-        "comment": "Mali people are sometimes called as somalians"
-	},
-	// {
-	//     "countryName": "Belize",
-	//     "countryCode": "bz"
-	// },
-	// {
-	//     "countryName": "Djibouti",
-	//     "countryCode": "dj"
-	// },
-	// {
-	//     "countryName": "Aruba",
-	//     "countryCode": "aw"
-	// },
-	// {
-	//     "countryName": "Bermuda",
-	//     "countryCode": "bm"
-	// },
-	// {
-	//     "countryName": "Vanuatu",
-	//     "countryCode": "vu"
-	// },
-	// {
-	//     "countryName": "Comoros",
-	//     "countryCode": "km"
-	// },
-	// {
-	//     "countryName": "Eritrea",
-	//     "countryCode": "er"
-	// },
-	// {
-	//     "countryName": "Seychelles",
-	//     "countryCode": "sc"
-	// },
-	// {
-	//     "countryName": "Tonga",
-	//     "countryCode": "to"
-	// },
-	// {
-	//     "countryName": "Bahamas",
-	//     "countryCode": "bs"
-	// },
-	// {
-	//     "countryName": "Brunei",
-	//     "countryCode": "bn"
-	// },
-	// {
-	//     "countryName": "Cape Verde",
-	//     "countryCode": "cv"
-	// },
-	// {
-	//     "countryName": "Cayman Islands",
-	//     "countryCode": "ky"
-	// },
-	// {
-	//     "countryName": "Central African Rep.",
-	//     "countryCode": "cf"
-	// },
-	// {
-	//     "countryName": "Czech Republic",
-	//     "countryCode": "cs"
-	// },
-	// {
-	//     "countryName": "Antigua and Barbuda",
-	//     "countryCode": "ag"
-	// },
-	// {
-	//     "countryName": "Falkland Isl., Malvinas",
-	//     "countryCode": "fk"
-	// },
-	// {
-	//     "countryName": "French Polynesia",
-	//     "countryCode": "pf"
-	// },
-	// {
-	//     "countryName": "The Gambia",
-	//     "countryCode": "gm"
-	// },
-	// {
-	//     "countryName": "Gibraltar",
-	//     "countryCode": "gi"
-	// },
-	{
-	    "countryName": "Guinea (Conakry)",
-	    "countryCode": "gn"
+		countryName: "Sweden",
+		countryCode: "sweden",
+		type: "livepriceofgold"
 	},
 	{
-	    "countryName": "Kyrgyz Republic",
-	    "countryCode": "kg",
-        "comment": "Kyrgyzstan became republic"
+		countryName: "Mexico",
+		countryCode: "mexico",
+		type: "livepriceofgold"
 	},
-	// {
-	//     "countryName": "North Korea",
-	//     "countryCode": "kp"
-	// },
 	{
-	    "countryName": "Papua New Guinea",
-	    "countryCode": "pg"
+		countryName: "Sudan",
+		countryCode: "sudan",
+		type: "livepriceofgold"
 	},
-	// {
-	//     "countryName": "St. Helena",
-	//     "countryCode": "sh"
-	// },
-	// {
-	//     "countryName": "El Salvador",
-	//     "countryCode": "sv"
-	// },
-	// {
-	//     "countryName": "Western Samoa",
-	//     "countryCode": "ws"
-	// },
-	// {
-	//     "countryName": "Solomon Islands",
-	//     "countryCode": "sb"
-	// },
-	// {
-	//     "countryName": "Trinidad and Tobago",
-	//     "countryCode": "tt"
-	// },
-	// {
-	//     "countryName": "Isle of Man",
-	//     "countryCode": "im"
-	// },
-	// {
-	//     "countryName": "Ireland",
-	//     "countryCode": "ie"
-	// }
+	{
+		countryName: "Russia",
+		countryCode: "russia",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Ghana",
+		countryCode: "ghana",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Uzbekistan",
+		countryCode: "uzbekistan",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Chile",
+		countryCode: "chile",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Bulgaria",
+		countryCode: "bulgaria",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Tanzania",
+		countryCode: "tanzania",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Indonesia",
+		countryCode: "indonesia",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Australia",
+		countryCode: "australia",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Colombia",
+		countryCode: "colombia",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Venezuela",
+		countryCode: "venezuela",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Zimbabwe",
+		countryCode: "zimbabwe",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Mali",
+		countryCode: "mali",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Mauritania",
+		countryCode: "mauritania",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Niger",
+		countryCode: "niger",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Senegal",
+		countryCode: "senegal",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Singapore",
+		countryCode: "singapore",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Laos",
+		countryCode: "laos",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "China",
+		countryCode: "china",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Kazakhstan",
+		countryCode: "kazakhstan",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Guinea",
+		countryCode: "guinea",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Bolivia",
+		countryCode: "bolivia",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "United States",
+		countryCode: "usa",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Dominican Republic",
+		countryCode: "dominican-republic",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Burkina Faso",
+		countryCode: "burkina-faso",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "South Africa",
+		countryCode: "south-africa",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "DR Congo",
+		countryCode: "congo",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Ivory Coast",
+		countryCode: "cote-divoire",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Papua New Guinea",
+		countryCode: "papua-new-guinea",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "New Zealand",
+		countryCode: "new-zealand",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "LBMA",
+		countryCode: "united-kingdom",
+		type: "livepriceofgold"
+	},
+	{
+		countryName: "Guyana",
+		countryCode: "gy",
+		type: "goldpricez"
+	},
+	{
+		countryName: "Liberia",
+		countryCode: "lr",
+		type: "goldpricez"
+	},
+	{
+		countryName: "Mongolia",
+		countryCode: "mn",
+		type: "goldpricez"
+	},
+	{
+		countryName: "Kyrgyzstan",
+		countryCode: "kg",
+		type: "goldpricez"
+	},
+	{
+		countryName: "Suriname",
+		countryCode: "sr",
+		type: "goldpricez"
+	},
 ]
 
 export default countries
