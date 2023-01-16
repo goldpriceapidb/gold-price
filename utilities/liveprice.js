@@ -1,3 +1,34 @@
+import * as cheerio from "cheerio"
+import countries from "../data/countries.js"
+import { codeToLiveURL, getPage } from "./fetchData.js"
+import { sanitizeDate } from "./sanitize.js"
+
+async function fetchCountry(code) {
+	let url = codeToLiveURL(code)
+	let countryName = countries.find(
+		(country) => country.countryCode === code
+	).countryName
+	try {
+		const content = await getPage(url)
+
+		let { goldRate, currency } = getGoldPriceAndCurrency(content)
+		let conversionRate = getConversionToUSD(content)
+		let lastUpdated = sanitizeLastUpdated(getLastUpdated(content))
+
+		let gold = {
+			countryName,
+			countryCode: code,
+			currency,
+			goldRate,
+			lastUpdated,
+			conversionRate,
+		}
+        console.log(`Fetched ${gold.countryName}. ConversionRate: ${gold.conversionRate}`)
+		return formatValues(gold)
+	} catch (error) {
+		console.log(error)
+	}
+}
 
 function getGoldPriceAndCurrency(content) {
 	let $ = cheerio.load(content)
@@ -84,3 +115,4 @@ function formatValues(country) {
     return value
 }
 
+export default fetchCountry
