@@ -15,3 +15,15 @@ function getGoldPriceAndCurrency(content) {
 		currency: sanitizeTextToCurrency(noisyCurrencyText)
 	}
 }
+
+function getConversionToUSD(content) {
+	let $ = cheerio.load(content)
+	let img = $(".cleft.fleft.data-img.pad3")
+	let parent = img.parent()
+	let table = parent.find(".data-table-2.dt2-currency")
+	let rows = table.find("tbody tr")
+	let row = $(rows[1])
+	let cols = row.find("td")
+	let conversionRate = $(cols[2]).text().trim()
+	return 1 / conversionRate
+}
