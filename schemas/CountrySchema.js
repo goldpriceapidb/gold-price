@@ -5,6 +5,7 @@ const CountrySchema = new Schema({
     countryName: { type: String, required: true, trim: true },
     countryCode: { type: String, required: true, trim: true },
     currency: { type: String, required: true, trim: true },
+    currencySymbol: { type: String, required: true, trim: true },
 
     previousPrice: { type: Number },
     currentPrice: { type: Number, required: true },
