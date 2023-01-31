@@ -2,6 +2,7 @@ import express from "express"
 import Country from "../schemas/CountrySchema.js"
 import { getCountryData } from "../utilities/fetchData.js"
 import countries from "../data/countries.js"
+import currencies from "../data/currency.js"
 
 const app = express()
 const router = express.Router()
@@ -43,6 +44,7 @@ async function addEntryToDatabase(countryCode) {
 			countryName: data.countryName,
 			countryCode: data.countryCode,
 			currency: data.currency,
+			currencySymbol: getCurrencySymbol(data.currency),
 			currentPrice: data.goldRate.rate,
 			goldLastUpdated: data.goldRate.lastUpdated,
 			currencyConversionRate: data.conversionRate.rate
@@ -70,6 +72,14 @@ async function addEntryToDatabase(countryCode) {
 	}
 
 	return country
+}
+
+function getCurrencySymbol(currencyCode) {
+	let currency = currencies.find((currency) => currency.cc === currencyCode)
+	if (currency) {
+		return currency.symbol
+	}
+	return currencyCode
 }
 
 async function getAllStuffDone() {
