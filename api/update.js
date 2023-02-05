@@ -47,28 +47,32 @@ async function addEntryToDatabase(countryCode) {
 			currencySymbol: getCurrencySymbol(data.currency),
 			currentPrice: data.goldRate.rate,
 			goldLastUpdated: data.goldRate.lastUpdated,
-			currencyConversionRate: data.conversionRate.rate
+			currencyConversionRate: data.conversionRate.rate,
 		})
 
 		return createdCountry
 	} else {
-		console.log(`Country found, updating country...${data.countryName}`)
-		let lastKnownRate = country.currentPrice
+		try {
+			console.log(`Country found, updating country...${data.countryName}`)
+			let lastKnownRate = country.currentPrice
 
-		country = await Country.findByIdAndUpdate(
-			country._id,
-			{
-				previousPrice: lastKnownRate,
-				currentPrice: data.goldRate.rate,
-				priceChange: data.goldRate.rate - lastKnownRate,
-				priceChangePercentage:
-					((data.goldRate.rate - lastKnownRate) / lastKnownRate) *
-					100,
-				goldLastUpdated: data.goldRate.lastUpdated,
-				currencyConversionRate: data.conversionRate.rate
-			},
-			{ new: true }
-		)
+			country = await Country.findByIdAndUpdate(
+				country._id,
+				{
+					previousPrice: lastKnownRate,
+					currentPrice: data.goldRate.rate,
+					priceChange: data.goldRate.rate - lastKnownRate,
+					priceChangePercentage:
+						((data.goldRate.rate - lastKnownRate) / lastKnownRate) *
+						100,
+					goldLastUpdated: data.goldRate.lastUpdated,
+					currencyConversionRate: data.conversionRate.rate,
+				},
+				{ new: true }
+			)
+		} catch (error) {
+			console.log("Rate limiting or other error")
+		}
 	}
 
 	return country
@@ -89,7 +93,6 @@ async function getAllStuffDone() {
 	}
 	await Promise.all(promises)
 }
-
 
 export default router
 export { getAllStuffDone }
