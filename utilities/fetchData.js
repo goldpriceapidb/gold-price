@@ -16,7 +16,7 @@ async function getPage(sourceURL) {
 async function getIndia() {
 	let response = await fetch("http://viewbcastgold.dpgold.in:8811/VOTSBroadcast/Services/xml/GetLiveRate")
 	let data = await response.json()
-	let value =parseInt(data.split("\u0009")[23])
+	let value =parseFloat(data.split("\u0009")[23])
 	return value
 }
 
