@@ -13,6 +13,13 @@ async function getPage(sourceURL) {
 	return data
 }
 
+async function getIndia() {
+	let response = await fetch("http://viewbcastgold.dpgold.in:8811/VOTSBroadcast/Services/xml/GetLiveRate")
+	let data = await response.json()
+	let value =parseInt(data.split("\u0009")[23])
+	return value
+}
+
 function codeToURL(code) {
 	return `${sourceURL}/${code}/gram`
 }
@@ -117,4 +124,4 @@ async function getCountryData(code) {
 	}
 }
 
-export { getCountryData, codeToLiveURL, getPage }
+export { getCountryData, codeToLiveURL, getPage,getIndia }
